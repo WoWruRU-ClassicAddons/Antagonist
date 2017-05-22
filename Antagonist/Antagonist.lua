@@ -5,9 +5,6 @@ Antagonist = AceLibrary("AceAddon-2.0"):new("AceEvent-2.0", "AceDB-2.0", "AceCon
 -- embedded libs
 local BS = AceLibrary("Babble-Spell-2.2")
 local L = AceLibrary("AceLocale-2.2"):new("Antagonist")
-local deformat = AceLibrary("Deformat-2.0")
-
-Antagonist.spells = {}
 
 function Antagonist:OnInitialize()
 
@@ -44,8 +41,7 @@ function Antagonist:OnInitialize()
 	self:RegisterDB("AntagonistDB")
 	self:RegisterDefaults('profile', defaults)
 	self:RegisterOpts()
-
-	-- init formating tables
+	
 	self.textures = {
 		[1] = "Interface\\Addons\\Antagonist\\Textures\\banto", 
 		[2] = "Interface\\Addons\\Antagonist\\Textures\\smooth",
@@ -60,7 +56,7 @@ function Antagonist:OnInitialize()
 		["cooldowns"] = "blue",
 		["buffs"] = "green",
 	}
-
+	
 	-- create anchors
 	self.anchors = {}
 	self.titles = {}
@@ -78,9 +74,7 @@ function Antagonist:OnInitialize()
 end
 
 function Antagonist:OnEnable()
-	-- init temp tables
 	self.bars = {}
-	self.temp = {}
 
 	-- On-Death handling (should disable this when we turn off fadeondeath)
 	self:RegisterEvent("PLAYER_DEAD")
@@ -108,21 +102,12 @@ function Antagonist:OnEnable()
 	
 	-- Spell fade handling (should be disabled when we turn off fadeonfade)
 	self.parser:RegisterEvent("Antagonist", "CHAT_MSG_SPELL_AURA_GONE_OTHER", function (event, info) self:SPELL_FADE(event, info) end)
-
-	-- Duel request
-	self:RegisterEvent("DUEL_REQUESTED")
-	-- Duel start
-	self:RegisterEvent("CHAT_MSG_SYSTEM")
-	-- Duel finish
-	self:RegisterEvent("DUEL_FINISHED")
 end
 
 function Antagonist:OnDisable()
 	self.parser:UnregisterAllEvents("Antagonist")
-	self:KillAllBars()
-	self.bars, self.temp, self.colors, self.textures = nil	
 end
--- Runs test bars
+
 function Antagonist:RunTest()
 	for k in self.db.profile.enabled do
 		local id = "Antagonist-Test"..k
@@ -203,21 +188,6 @@ function Antagonist:SPELL_DISPEL(event, info)
 		self:KillBar(info.victim, info.skill, "buffs")
 	end
 end
--- Duel request
-function Antagonist:DUEL_REQUESTED()
-	self.temp.dueltarget = arg1
-end
--- Duel started
-function Antagonist:CHAT_MSG_SYSTEM()
-	if string.find(arg1, DUEL_COUNTDOWN) then
-		local count = deformat(arg1, DUEL_COUNTDOWN)
-		if count == 1 then self.temp.isdueling = true end
-	end
-end
--- Duel finished
-function Antagonist:DUEL_FINISHED()
-	self.temp.isdueling, self.temp.dueltarget = nil
-end
 --<< ====================================================================== >>--
 -- Parse Validation                                                           --
 --<< ====================================================================== >>--
@@ -226,10 +196,7 @@ function Antagonist:ValidateInfo(unit, spell, group)
 	
 	if not self.spells[group][spell] then return end
 
-	if self:IsFriendly(unit) then
-		if not self.temp.isduelling then return end  -- stop when unit is friendly but youre not in a duel
-		if self.temp.isduelling and unit ~= self.temp.dueltarget then return end -- stop when youre dueling but unit isnt the one youre dueling
-	end
+	if self:IsFriendly(unit) then return end
 
 	if self.db.profile.targetonly[group] then
 		if not UnitExists("target") then return
@@ -242,16 +209,13 @@ function Antagonist:ValidateInfo(unit, spell, group)
 	if group ~= "cooldowns" and self.spells.cooldowns[spell] and self.db.profile.enabled.cooldowns then
 		self:StartBar(unit, spell, "cooldowns")
 	end
-	if group ~= "buffs" and self.spells.buffs[spell] and self.db.profile.enabled.buffs then
-		self:StartBar(unit, spell, "buffs")
-	end
-	-- checks time is over 0, no point starting a bar which is only meant to trigger a cooldown/buff
+	-- checks time is over 0, no point starting a bar which is only meant to trigger a cooldown
 	if self.spells[group][spell][1] ~= 0 then
 		self:StartBar(unit, spell, group)
 	end
 end
 
--- Blatantly stolen from WitchHunt, added a few things of mine own to it also  credit: Ammo 
+-- Blatantly stolen from WitchHunt, added a few things of mine own to it also  credit: Ammo
 function Antagonist:IsFriendly(name)
 	local i,n,unit
 	if name == UnitName("player") then
@@ -374,7 +338,6 @@ end
 --<< ====================================================================== >>--
 -- Bar Processing                                                             --
 --<< ====================================================================== >>--
--- Kill the given bar
 function Antagonist:KillBar(unit, spell, group)
 	local id = "Antagonist-"..unit.."-"..spell.."-"..group
 	if self:IsCandyBarRegistered(id) then
@@ -386,7 +349,6 @@ function Antagonist:KillBar(unit, spell, group)
 		end
 	end
 end
--- Kill all bars from the given unit
 function Antagonist:KillBars(unit)
 	if not self.bars[unit] then return end
 	for i in self.bars[unit] do
@@ -398,7 +360,6 @@ function Antagonist:KillBars(unit)
 	self:UpdateTitle(2)
 	self:UpdateTitle(3)
 end
--- Kill all bars and subsequently hide all titles
 function Antagonist:KillAllBars()
 	for i in self.bars do
 		for j in self.bars[i] do
@@ -408,6 +369,15 @@ function Antagonist:KillAllBars()
 		end
 	end
 	self.bars = {}
+	for i in self.titles do
+		self.titles[i]:Hide()
+	end
+end
+--<< ====================================================================== >>--
+-- Misc Processing                                                            --
+--<< ====================================================================== >>--
+function Antagonist:StopEverything()
+	self:KillAllBars()
 	for i in self.titles do
 		self.titles[i]:Hide()
 	end

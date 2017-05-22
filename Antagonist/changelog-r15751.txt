@@ -1,35 +1,4 @@
 ------------------------------------------------------------------------
-r18669 | sole | 2006-12-02 21:38:25 -0500 (Sat, 02 Dec 2006) | 5 lines
-
-Antagonist:
-
-- hopefully fixed the line 226 error caused by some addon managers
-- "Summon Water Elemental" should now bring up a 1 min buff timer
-- This revision is mainly to grab all the updates to babble-spell for upload to the addon sites
-------------------------------------------------------------------------
-r17249 | sole | 2006-11-17 08:39:00 -0500 (Fri, 17 Nov 2006) | 3 lines
-
-Antagonist: 
-- Backported BC branch buff timer triggering change and added BC spells + talents
-- Set hunter trap cooldowns to 15 sec 
-------------------------------------------------------------------------
-r16546 | sole | 2006-11-10 02:12:01 -0500 (Fri, 10 Nov 2006) | 3 lines
-
-Antagonist 
-- Fixed 'var' error  (hopefully)
-- Fixed test bars error
-------------------------------------------------------------------------
-r16474 | sole | 2006-11-09 09:50:17 -0500 (Thu, 09 Nov 2006) | 4 lines
-
-Antagonist 
-- added duel exclusion code (COMPLETELY UNTESTED - think of it as a fun experiment)
-Now if you are dueling someone but you are in a group or raid with each other then Antagonist should work, theoretically of course. 
-- optimized the /ant stop console command
-------------------------------------------------------------------------
-r16009 | sole | 2006-11-05 10:03:02 -0500 (Sun, 05 Nov 2006) | 1 line
-
-Antagonist: updated german localization 
-------------------------------------------------------------------------
 r15751 | fenlis | 2006-11-02 08:42:54 -0500 (Thu, 02 Nov 2006) | 2 lines
 
 Antagonist - Fix locals

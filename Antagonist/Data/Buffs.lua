@@ -30,9 +30,7 @@ Antagonist.spells.buffs = {
 	[L["Fire Reflector"]] = 		{5, "general","magic","Spell_Fire_SealOfFire"},  
 
 	-- mage
-	[BS["Blazing Speed"]] =			{8, "mage","fire"},
 	[BS["Ice Block"]] =			{10,"mage","frost"},
-	[BS["Invisibility"]] =			{20,"mage","arcane"},
 	[BS["Evocation"]] =			{8, "mage","arcane"},
 	[BS["Arcane Power"]] =			{15,"mage","arcane"},
 	[BS["Slow Fall"]] =			{30,"mage","arcane"},
@@ -41,33 +39,25 @@ Antagonist.spells.buffs = {
 	[BS["Blink"]] =				{0, "mage","arcane"},-- cd only
 	[BS["Combustion"]] =			{30,"mage", "fire"}, -- dissapears after 3 charges
 	[BS["Presence of Mind"]] =		{30,"mage", "arcane"}, -- dissapears after use
-	[BS["Ice Barrier"]] =			{60,"mage", "frost"},
-	[BS["Summon Water Elemental"]] =	{45,"mage", "frost"}, 
+	[BS["Ice Barrier"]] =			{60, "mage", "frost"},
 
 	-- paladin
-	[BS["Avenging Wrath"]] =		{20,"paladin","holy"},
-	[BS["Divine Illumination"]] =		{10,"paladin","holy"},
 	[BS["Divine Shield"]] =			{12,"paladin","holy"},
 	[BS["Blessing of Protection"]] =	{10,"paladin","holy"},
 	[BS["Blessing of Freedom"]] =		{16,"paladin","holy"},
 	[BS["Divine Protection"]] =		{8, "paladin","holy"}, 
 	[BS["Blessing of Sacrifice"]] =		{30,"paladin","holy"}, 
-	[BS["Consecration"]] =			{8, "paladin","holy"},
-	[BS["Divine Favor"]] =			{30,"paladin","holy"}, -- dissapears after use
-	[BS["Holy Shield"]] =			{10,"paladin","holy"}, -- can also dissapear after 4 charges
-	[BS["Seal of Justice"]] =		{30,"paladin","holy"},
-	
+	[BS["Consecration"]] =			{8, "paladin", "holy"},
+	[BS["Divine Favor"]] =			{30,"paladin", "holy"}, -- dissapears after use
+	[BS["Holy Shield"]] =			{10,"paladin", "holy"}, -- can also dissapear after 4 charges
+			
 	-- warlock
 	[BS["Shadow Ward"]] =			{30,"warlock","shadow"}, 
 	[BS["Amplify Curse"]] =			{30,"warlock","shadow"}, 
-	[BS["Backlash"]] =			{8, "warlock","shadow"},
 
-	-- voidwalker
+	-- Voidwalker
 	[BS["Consume Shadows"]] =		{10,"warlock","shadow"}, 
-	
-	-- felguard
-	[BS["Demonic Frenzy"]] =		{10,"warlock","shadow"},
-			
+		
 	-- priest
 	[BS["Power Word: Shield"]] =		{30,"priest","holy"},
 	[BS["Fade"]] =				{10,"priest","shadow"},
@@ -81,7 +71,6 @@ Antagonist.spells.buffs = {
 	[BS["Elune's Grace"]] =			{15,"priest","arcane"},
 	[BS["Fear Ward"]] =			{600,"priest","holy"},
 	[BS["Inner Focus"]] =			{30, "priest","arcane"}, -- dissapears after use
-	[BS["Pain Suppression"]] =		{8,  "priest","holy"},
 
 	-- warrior
 	[BS["Bloodrage"]] =			{10,"warrior","physical"},
@@ -95,11 +84,7 @@ Antagonist.spells.buffs = {
 	[BS["Shield Block"]] =			{5.5,"warrior","physical"},
 	[BS["Enrage"]] =			{12,"warrior","physical"}, 
 	[BS["Sweeping Strikes"]] =		{30,"warrior","physical"}, -- dissapears after use
-	[BS["Commanding Shout"]] =		{120,"warrior","physical"},
-	[BS["Spell Reflection"]] =		{5, "warrior", "physical"},
-	[BS["Rampage"]] =			{30,"warrior", "physical"},
-	[BS["Second Wind"]] =			{10,"warrior", "physical"},
-
+	
 	-- rogue
 	[BS["Sprint"]] =			{15,"rogue","physical"},
 	[BS["Evasion"]] =			{15,"rogue","physical"},
@@ -107,14 +92,12 @@ Antagonist.spells.buffs = {
 	[BS["Adrenaline Rush"]] =		{15,"rogue","physical"},
 	[BS["Cold Blood"]] =			{30,"rogue","physical"}, -- dissapears after use
 	[BS["Ghostly Strike"]] =		{7, "rogue","physical"},
-	[BS["Cloak of Shadows"]] =		{5, "rogue","physical"},
-
+	
 	-- hunter
 	[BS["Rapid Fire"]] = 			{15,"hunter","physical"},
 	[BS["Deterrence"]] = 			{10,"hunter","physical"},
 	[BS["Bestial Wrath"]] =			{18,"hunter","physical"},
 	[BS["Intimidation"]] =			{3, "hunter","physical"},
-	[BS["The Beast Within"]] =		{18,"hunter","Physical"},
 	[L["Quick Shots"]] =			{12,"hunter","physical", "Ability_Warrior_InnerRage"},
 
 	-- druid
@@ -123,7 +106,6 @@ Antagonist.spells.buffs = {
 	[BS["Innervate"]] = 			{20,"druid","nature"},
 	[BS["Tiger's Fury"]] = 			{6, "druid","physical"},
 	[BS["Frenzied Regeneration"]] = 	{10,"druid","nature"},
-	[BS["Lifebloom"]] =			{7, "druid","nature"},
 	[BS["Rejuvenation"]] = 			{12,"druid","nature"},
 	[BS["Abolish Poison"]] = 		{8, "druid","nature"},
 	[BS["Nature's Grasp"]] =		{45,"druid","nature"},
@@ -132,17 +114,9 @@ Antagonist.spells.buffs = {
 	-- shaman
 	[BS["Stormstrike"]] =			{12,"shaman","nature"},
 	[BS["Stoneclaw Totem"]] =		{15,"shaman","nature"},
-	[BS["Mana Tide Totem"]] =		{15,"shaman","frost"},
-	[BS["Fire Nova Totem"]] =		{5, "shaman","fire"},
+	[BS["Mana Tide Totem"]] =		{15,"shaman","nature"},
+	[BS["Fire Nova Totem"]] =		{5, "shaman","nature"},
 	[BS["Elemental Mastery"]] =		{30,"shaman","nature"}, -- dissapears after use
 	[BS["Grounding Totem"]] =		{15,"shaman","nature"},
-	[BS["Fire Elemental Totem"]] =		{120,"shaman","fire"},
-	[BS["Earth Elemental Totem"]] =		{120,"shaman","nature"},
-	[BS["Wrath of Air Totem"]] =		{120,"shaman","nature"},
-	[BS["Bloodlust"]] =			{60,"shaman","physical"},
-	[BS["Heroism"]] =			{60,"shaman","physical"},
-	[BS["Totem of Wrath"]] =		{120,"shaman","fire"},
-	[BS["Shamanistic Rage"]] =		{30,"shaman","physical"},
-	[BS["Earth Shield"]] =			{120,"shaman","nature"}, -- dissapears after 10 charges
-	[BS["Unleashed Rage"]] =		{10,"shaman","physical"},
-}	
+
+}

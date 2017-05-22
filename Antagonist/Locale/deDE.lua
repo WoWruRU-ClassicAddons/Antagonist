@@ -1,4 +1,4 @@
---[[ $Id: deDE.lua 16009 2006-11-05 15:03:02Z sole $ ]]--
+--[[ $Id: deDE.lua 15751 2006-11-02 13:42:54Z fenlis $ ]]--
 
 local L = AceLibrary("AceLocale-2.2"):new("Antagonist")
 
@@ -46,13 +46,13 @@ L:RegisterTranslations("deDE", function()
 
 		-- Title names
 		["Title Text"] = "Titel",
-		["Title Size"] = "Titel Gr\195\182\195\159e",
+		["Title Size"] = "Title Size",
 		["Title Color"] = "Titel Farbe",
 
 		-- Command line descriptions
 		["DescGroup"] = "Die drei Gruppen: Zauberspr\195\188che, St\195\164rkungszauber, Abklingzeiten.",
 		["DescBar"] = "Aussehen der Balken einstellen.",
-		["DescTitle"] = "Aussehen der Titel einstellen.",
+		["DescTitle"] = "Title appearance settings.",
 
 		["DescCasts"] = "Zauberzeit.",
 		["DescBuffs"] = "Dauer der St\195\164rkungszauber.",
@@ -75,9 +75,9 @@ L:RegisterTranslations("deDE", function()
 		["DescGrowup"] = "Leisten nach unten oder oben erweitern.",
 
 		-- Title descs
-		["DescTitleNum"] = "Einstellungen ver\195\164ndern f\195\188r Titel ", -- do not remove the space
+		["DescTitleNum"] = "Control settings for title ", -- do not remove the space
 		["DescTitleText"] = "Den Titeltext einstellen.",
-		["DescTitleSize"] = "Die Schriftgr\195\182\195\159e des Titeltextes einstellen.",
+		["DescTitleSize"] = "The font size of the title.",
 		["DescTitleColor"] = "Die Farbe des Titeltextes einstellen.",
 
 		-- Misc descs
@@ -107,10 +107,10 @@ L:RegisterTranslations("deDE", function()
 		["Shrink"] = "Schrumpfen",			
 		["Banshee Curse"] = "Bansheefluch",			
 		["Shadow Bolt Volley"] = "Schattenblitzsalve",		
-		["Cripple"] = "Verkr\195\188ppeln",			
+		["Cripple"] = "Verkrüppeln",			
 		["Dark Mending"] = "Dunkle Besserung",			
 		["Spirit Decay"] = "Willensverfall",
-		["Gust of Wind"] = "Windsto\195\159",			
+		["Gust of Wind"] = "Windstoß",			
 		["Black Sludge"] = "Schwarzer Schlamm",			
 		["Toxic Bolt"] = "Toxischer Blitz",			
 		["Poisonous Spit"] = "Giftspucke ",			
@@ -120,25 +120,25 @@ L:RegisterTranslations("deDE", function()
 		["Dark Sludge"] = "Dunkler Schlamm",			
 		["Plague Cloud"] = "Seuchenwolke",			
 		["Wandering Plague"] = "Wandernde Seuche",		
-		["Wither Touch"] = "Welkber\195\188hrung",			
-		["Fevered Fatigue"] = "Fieberhafte Ersch\195\182pfung",		
-		["Encasing Webs"] = "Umschlie\195\159ende Gespinste",			
+		["Wither Touch"] = "Welkberührung",			
+		["Fevered Fatigue"] = "Fieberhafte Erschöpfung",		
+		["Encasing Webs"] = "Umschließende Gespinste",			
 		["Crystal Gaze"] = "Kristallblick",			
 		
 		-- buffs
-		["Brittle Armor"] = "Spr\195\182de R\195\188stung",
+		["Brittle Armor"] = "Spröde Rüstung",
 		["Unstable Power"] = "Instabile Macht",
-		["Restless Strength"] = "Ruhelose St\195\164rke",
+		["Restless Strength"] = "Ruhelose Stärke",
 		["Ephemeral Power"] = "Ephemere Macht",
-		["Massive Destruction"] = "Massive Zerst\195\182rung", 
+		["Massive Destruction"] = "Massive Zerstörung", 
 		["Arcane Potency"] = "Arkane Kraft",	
 		["Energized Shield"] = "Energiegeladener Schild",
-		["Brilliant Light"] = "Glei\195\159endes Licht",
+		["Brilliant Light"] = "Gleißendes Licht",
 		["Mar'li's Brain Boost"] = "Mar'lis fokussierte Gedanken",
-		["Earthstrike"] = "Erdsto\195\159", 
+		["Earthstrike"] = "Erdstoß", 
 		["Gift of Life"] = "Geschenk des Lebens", 
 		["Nature Aligned"] = "Naturverbundenheit",
-		["Quick Shots"] = "Schnelle Sch\195\188sse",
+		["Quick Shots"] = "Schnelle Schüsse",
 
 		["Fire Reflector"] = "Feuerreflektor",
 		["Shadow Reflector"] = "Schattenreflektor",

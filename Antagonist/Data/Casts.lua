@@ -4,6 +4,7 @@
 local BS = AceLibrary("Babble-Spell-2.2")
 local L = AceLibrary("AceLocale-2.2"):new("Antagonist")
 
+if not Antagonist.spells then Antagonist.spells = {} end -- for some reason times isnt created during OnInitialize 
 
 -- table values are: time, class, school, icon
 Antagonist.spells.casts = {
@@ -16,8 +17,6 @@ Antagonist.spells.casts = {
 	[BS["Frostbolt"]] =			{2.5,"mage","frost"},
 	[BS["Fireball"]] =			{3,  "mage","fire"},
 	[BS["Flamestrike"]] =			{3,  "mage","fire"},
-	[BS["Ice Lance"]] =			{1.5,"mage","frost"},
-	[BS["Invisibility"]] =			{8,  "mage","arcane"},
 	[BS["Polymorph"]] =			{1.5,"mage","arcane"},
 	[BS["Polymorph: Pig"]] =		{1.5,"mage","arcane"},
 	[BS["Polymorph: Turtle"]] =		{1.5,"mage","arcane"},
@@ -30,13 +29,8 @@ Antagonist.spells.casts = {
 	[BS["Teleport: Orgrimmar"]] =		{10, "mage","magic"},
 	[BS["Teleport: Stormwind"]] =		{10, "mage","magic"},
 	[BS["Teleport: Undercity"]] =		{10, "mage","magic"},
-	[BS["Summon Water Elemental"]] =	{0,  "mage","frost"},
-
-	-- water elemental
-	[BS["Waterbolt"]] =			{2.5,"mage","frost"},
 
 	-- paladin
-	[BS["Avenger's Shield"]] =		{1,  "paladin","holy"},
 	[BS["Holy Light"]] =			{2.5,"paladin","holy"},
 	[BS["Flash of Light"]] =		{1.5,"paladin","holy"},
 	[BS["Summon Charger"]] =		{3,  "paladin","holy"},
@@ -59,37 +53,28 @@ Antagonist.spells.casts = {
 	[BS["Summon Succubus"]] =		{6,  "warlock","shadow"},
 	[BS["Summon Voidwalker"]] =		{6,  "warlock","shadow"},
 	[BS["Summon Felhunter"]] =		{6,  "warlock","shadow"},
-	[BS["Summon Felguard"]] =		{10, "warlock","shadow"},
 	[BS["Banish"]] =			{1.5,"warlock","shadow"},
 	[BS["Ritual of Summoning"]] =		{5,  "warlock","shadow"},
 	[BS["Ritual of Doom"]] =		{10, "warlock","shadow"},
 	[BS["Enslave Demon"]] =			{3,  "warlock","shadow"},
 	[BS["Inferno"]] =			{2,  "warlock","shadow"},
-	[BS["Seed of Corruption"]] =		{2,  "warlock","shadow"},
-	[BS["Incinerate"]] =			{2.5,"warlock","fire"},
-	[BS["Unstable Affliction"]] =		{1.5,"warlock","shadow"},
-	[BS["Ritual of Souls"]] =		{3,  "warlock","shadow"},
-	[BS["Shadowfury"]] =			{0.5,"warlock","shadow"},
 
 	-- succubus
 	[BS["Seduction"]] =			{1.5,"warlock","shadow"},
 
 	-- priest
-	[BS["Binding Heal"]] =			{1.5,"priest","holy"},
 	[BS["Greater Heal"]] =			{2.5,"priest","holy"},
 	[BS["Flash Heal"]] =			{1.5,"priest","holy"},
 	[BS["Heal"]] =				{2.5,"priest","holy"},
-	[BS["Holy Fire"]] =			{3,  "priest","holy"},
-	[BS["Mass Dispel"]] =			{1.5,"priest","holy"},
+	[BS["Resurrection"]] =			{10, "priest","holy"},
+	[BS["Smite"]] =				{2,  "priest","holy"},
 	[BS["Mind Blast"]] =			{1.5,"priest","shadow"},
 	[BS["Mind Control"]] =			{3,  "priest","shadow"},
 	[BS["Mana Burn"]] =			{3,  "priest","shadow"},
-	[BS["Mind Soothe"]] =			{1.5,"priest","holy"},
+	[BS["Holy Fire"]] =			{3,  "priest","holy"},
 	[BS["Prayer of Healing"]] =		{3,  "priest","holy"},
-	[BS["Resurrection"]] =			{10, "priest","holy"},
-	[BS["Smite"]] =				{2,  "priest","holy"},
+	[BS["Mind Soothe"]] =			{1.5,"priest","holy"},
 	[BS["Shackle Undead"]] =		{1.5,"priest","holy"},
-	[BS["Vampiric Touch"]] =		{1.5,"priest","shadow"},
 
 	-- rogue
 	[BS["Disarm Trap"]] =			{2,  "rogue","physical"},
@@ -103,14 +88,12 @@ Antagonist.spells.casts = {
 	[BS["Dismiss Pet"]] = 			{5,  "hunter","nature"},
 	[BS["Revive Pet"]] = 			{10, "hunter","physical"},
 	[BS["Eyes of the Beast"]] = 		{2,  "hunter","physical"},
-	[BS["Mongoose Bite"]] =			{0,  "hunter","physical"}, -- cd only
-	[BS["Raptor Strike"]] =			{0,  "hunter","physical"}, -- cd only
-	[BS["Scatter Shot"]] =			{0,  "hunter","physical"}, -- cd only
-	[BS["Steady Shot"]] =			{1.5,"hunter","physical"},
-	[BS["Wyvern Sting"]] =			{0,  "hunter","physical"}, -- cd only
+	[BS["Mongoose Bite"]] =			{0,  "hunter", "physical"},
+	[BS["Raptor Strike"]] =			{0,  "hunter", "physical"},
+	[BS["Scatter Shot"]] =			{0,  "hunter", "physical"},
+	[BS["Wyvern Sting"]] =			{0,  "hunter", "physical"},
 
 	-- druid
-	[BS["Cyclone"]] =			{1.5,"druid","nature"},
 	[BS["Healing Touch"]] = 		{3,  "druid","nature"},
 	[BS["Regrowth"]] = 			{2,  "druid","nature"},
 	[BS["Rebirth"]] = 			{2,  "druid","nature"},
@@ -123,6 +106,7 @@ Antagonist.spells.casts = {
 	[BS["Tranquility"]] = 			{10, "druid","nature"},
 	[BS["Hurricane"]] =			{10, "druid", "nature"},
 	[BS["Tranquility"]] =			{10, "druid", "nature"},
+
 
 	-- shaman
 	[BS["Lesser Healing Wave"]] =		{1.5,"shaman","nature"},
@@ -142,7 +126,7 @@ Antagonist.spells.casts = {
 	[L["Banshee Curse"]] =			{2,  "general","shadow","Spell_Nature_Drowsy"},
 	[L["Shadow Bolt Volley"]] =		{3,  "general","shadow","Spell_Shadow_ShadowBolt"},
 	[L["Cripple"]] =			{3,  "general","shadow","Spell_Shadow_Cripple"},
-        [L["Dark Mending"]] =			{3.5,"general","shadow","Spell_Shadow_ChillTouch"},
+    [L["Dark Mending"]] =			{3.5,"general","shadow","Spell_Shadow_ChillTouch"},
 	[L["Spirit Decay"]] =			{2,  "general","shadow","Spell_Holy_HarmUndeadAura"},
 	[L["Gust of Wind"]] =			{2,  "general","nature","Spell_Nature_EarthBind"},
 	[L["Black Sludge"]] =			{3,  "general","shadow","Spell_Shadow_CallofBone"},
