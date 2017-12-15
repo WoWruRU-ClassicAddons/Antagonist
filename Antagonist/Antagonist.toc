@@ -3,26 +3,26 @@
 ## Title: Antagonist |cff7fff7f -Ace2-|r
 ## Notes: Tracks enemy casting times, buffs and cooldowns.
 ## Notes-ruRU: Отображает время применения заклинаний, положительных эффектов и восстановления.
+## Notes-esES: Informa de los tiempos de lanzamiento de hechizo, buffs y enfriamientos de tus enemigos.
+## Notes-zhCN: 追踪敌方施法时间、增益以及冷却计时。
+## Notes-zhTW: 追蹤敵方施法時間、增益以及冷卻計時。
 ## DefaultState: Enabled
+## OptionalDeps: Ace2, Babble-2.2, PaintChipsLib, CompostLib, CandyBar, ParserLib, DewdropLib, Deformat
 ## SavedVariables: AntagonistDB
-## Version: $Revision: 15747 $
-## X-ReleaseDate: "$Date: 2006-11-02 06:49:46 -0500 (Thu, 02 Nov 2006) $"
+## Version: $Revision: 80417 $
+## RequiredDeps: !Libs
+
+## X-ReleaseDate: "$Date: 2008-04-28 17:46:20 -0400 (Mon, 28 Apr 2008) $"
 ## X-Category: Combat
 ## X-Credits: fenlis, tazmanyak, onkel, Cinedelle
 ## X-Website: http://www.wowace.com/wiki/Antagonist
-## X-Embeds: Ace2, BabbleLib, PaintChipsLib, CompostLib, CandyBar, ParserLib, DewdropLib
+## X-Embeds: Ace2, BabbleLib, PaintChipsLib, CompostLib, CandyBar, ParserLib, DewdropLib, Deformat
 ## X-AceForum: 2522
 ## X-RelSite-WoWI: 5420
 ## X-RelSite-Curse: 5449
 ## X-RelSite-UI.WoW: 3271
-## RequiredDeps: !Libs
 
-Locale\enUS.lua
-Locale\ruRU.lua
-Locale\enGB.lua
-Locale\frFR.lua
-Locale\deDE.lua
-Locale\koKR.lua
+Locals\Locals.xml
 
 Antagonist.lua
 Antagonist-Options.lua
